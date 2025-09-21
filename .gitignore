@@ -1,0 +1,21 @@
+# Node.js dependencies
+node_modules/
+
+# Build- oder Output-Ordner 
+dist/
+build/
+
+# VS Code Projektdateien
+.vscode/
+
+# Betriebssystem-Dateien (Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env-Dateien
+.env
