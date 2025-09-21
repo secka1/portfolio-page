@@ -1,0 +1,20 @@
+:root {
+  /* Colors */
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-heading: #000000;
+  --color-link: #0071e3; /* Apple Blue */
+  --color-link-hover: #004080;
+
+  /* Typography */
+  --font-base: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-size-h1: 3rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.5rem;
+
+  /* Layout */
+  --radius: 8px;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --max-width-text: 60ch;
+}
