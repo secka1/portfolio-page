@@ -1,31 +1,73 @@
-/* Kopfbereich */
-header {
-    background-color: #5a6d5c; /* Akzentfarbe */
-    color: white;
-    padding: 2rem;
-    text-align: center;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  header {
+    background-color: #202821;
+    color: rgb(230, 230, 230);
+    padding: 1rem;
   }
   
   header h1 {
-    margin: 0; /* Überschrift direkt ohne extra Abstand */
+    margin: 10px;
+    text-align: right;
   }
   
-  /* Profilbild */
+  header h2 {
+    margin: 0;
+    text-align: right;
+  }
+  
+  /* Navbar */
+  .navbar {
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+  }
+  
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.25rem 0;
+    transition: opacity 0.2s ease;
+  }
+  
+  .navbar a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Avatar */
   .avatar {
-    width: 160px;       
-    height: 160px;      /* gleiche Höhe für Kreis */
-    border-radius: 50%; /* rundes Bild */
-    object-fit: cover;  /* Bild wird nicht verzerrt */
-    display: block;
-    margin: 1rem auto;  /* zentriert */
-    border: 3px solid #fff; /* optional */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* optional */
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    float: right;              /* rechts vom Text */
+    margin: 0 0 1rem 1rem;     /* Abstand links/unten */
+    border: 3px solid #202821;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
   }
   
-  /* Hauptinhalt */
+  /* Clearfix für About-Content, damit Footer nicht ins Bild rutscht */
+  .about-content::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  
+  /* Main */
   main {
-    max-width: 800px; /* Text nicht zu breit */
-    margin: 2rem auto; /* zentriert */
+    max-width: 800px;
+    margin: 2rem auto;
     padding: 0 1rem;
   }
   
