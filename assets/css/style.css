@@ -20,6 +20,7 @@ body {
   }
   
   header h2 {
+    color: #202821;
     margin: 0;
     text-align: right;
   }
@@ -45,23 +46,28 @@ body {
     opacity: 0.8;
   }
   
+  /* About-Layout */
+  .about-content {
+    display: flex;
+    align-items: center;       /* vertikal mittig Bild/Text */
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .about-text {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  
   /* Avatar */
   .avatar {
     width: 160px;
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    float: right;              /* rechts vom Text */
-    margin: 0 0 1rem 1rem;     /* Abstand links/unten */
     border: 3px solid #202821;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  }
-  
-  /* Clearfix für About-Content, damit Footer nicht ins Bild rutscht */
-  .about-content::after {
-    content: "";
-    display: block;
-    clear: both;
+    flex: 0 0 auto;
   }
   
   /* Main */
@@ -83,5 +89,22 @@ body {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
+  }
+  
+  /* Mobile Ansicht */
+  @media (max-width: 700px) {
+    .about-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .about-text {
+      order: 2; /* Text unter das Bild */
+    }
+  
+    .avatar {
+      order: 1; /* Bild zuerst */
+    }
   }
   
