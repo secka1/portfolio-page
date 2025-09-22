@@ -1,0 +1,45 @@
+/* Kopfbereich */
+header {
+    background-color: #5a6d5c; /* Akzentfarbe */
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0; /* Überschrift direkt ohne extra Abstand */
+  }
+  
+  /* Profilbild */
+  .avatar {
+    width: 160px;       
+    height: 160px;      /* gleiche Höhe für Kreis */
+    border-radius: 50%; /* rundes Bild */
+    object-fit: cover;  /* Bild wird nicht verzerrt */
+    display: block;
+    margin: 1rem auto;  /* zentriert */
+    border: 3px solid #fff; /* optional */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* optional */
+  }
+  
+  /* Hauptinhalt */
+  main {
+    max-width: 800px; /* Text nicht zu breit */
+    margin: 2rem auto; /* zentriert */
+    padding: 0 1rem;
+  }
+  
+  /* Absatz */
+  p {
+    font-size: 1.1rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #f0f0f0;
+    color: #666;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
