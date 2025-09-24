@@ -1,1 +1,20 @@
-# portfolio-page
+# portfolio-page# Portfolio – Angela Seckler
+
+Das ist meine persönliche Portfolio Seite, erstellt im Rahmen des Moduls EWEB Web Engineering.
+
+
+Live Demo: [https://secka1.github.io/portfolio-page](https://secka1.github.io/portfolio-page)
+
+---
+
+## Genutzte Technologien
+
+- **HTML** – Semantik
+- **CSS** – Design
+- **JavaScript** – Dynamische Inhalte und Interaktivität
+- **Git & GitHub** – Version Control und Deployment
+- **GitHub Pages** – Hosting
+
+---
+
+
