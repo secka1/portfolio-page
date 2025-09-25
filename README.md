@@ -10,11 +10,11 @@ Live Demo: [https://secka1.github.io/portfolio-page](https://secka1.github.io/po
 
 ## Genutzte Technologien
 
-- **HTML** – Semantik
-- **CSS** – Design
-- **JavaScript** – Dynamische Inhalte und Interaktivität
-- **Git & GitHub** – Version Control und Deployment
-- **GitHub Pages** – Hosting
+- **HTML**
+- **CSS** 
+- **JavaScript**
+- **Git & GitHub** 
+- **GitHub Pages**
 
 ---
 
