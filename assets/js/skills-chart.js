@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
         datasets: [{
           label: "Skill Level (0–10)",
           data: [5, 4, 5, 8, 6],
-          backgroundColor: "rgba(37, 99, 235, 0.2)",  // transparent blue
-          borderColor: "rgba(37, 99, 235, 1)",        // solid blue line
+          backgroundColor: "rgba(23, 143, 73, 0.2)",  
+          borderColor: "rgba(27, 48, 18, 1)",        
           borderWidth: 2,
-          pointBackgroundColor: "rgba(37, 99, 235, 1)"
+          pointBackgroundColor: "rgba(29, 88, 39, 1)"
         }]
       },
       options: {
