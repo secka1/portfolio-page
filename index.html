@@ -125,6 +125,7 @@
       btn.onclick = () => {
         const state = Math.random().toString(36).substring(2, 15);
         const authUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&scope=${encodeURIComponent(scopes.join(" "))}&redirect_uri=${encodeURIComponent(redirectUri)}&state=${state}`;
+        console.log("Auth URL:", authUrl);
         window.location = authUrl;
       };
       document.getElementById("playlist-container").appendChild(btn);
