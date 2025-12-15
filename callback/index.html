@@ -6,17 +6,13 @@
 </head>
 <body>
   <p>Login erfolgreich, bitte warten...</p>
-
   <script>
-    // Token aus URL holen
     const hash = window.location.hash.substring(1);
     const params = new URLSearchParams(hash);
     const token = params.get("access_token");
 
     if (token) {
-      // Token speichern
       localStorage.setItem("access_token", token);
-      // Zur Hauptseite zurückleiten
       window.location.href = "https://secka1.github.io/portfolio-page/";
     } else {
       document.body.innerHTML = "<p>Kein Token erhalten.</p>";
@@ -24,3 +20,4 @@
   </script>
 </body>
 </html>
+
