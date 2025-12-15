@@ -162,7 +162,7 @@
       }
     }
 
-    const token = getTokenFromUrl();
+    const token = localStorage.getItem("access_token");
     if (token) {
       loadPlaylists(token);
     } else {
