@@ -11,7 +11,7 @@
     // Token aus URL holen
     const hash = window.location.hash.substring(1);
     const params = new URLSearchParams(hash);
-    const token = localStorage.getItem("access_token");
+    const token = params.get("access_token");
 
     if (token) {
       // Token speichern
