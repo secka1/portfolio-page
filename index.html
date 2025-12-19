@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>Angelas Portfolio</h1>
+    <h1>Angela Seckler</h1>
     <nav class="navbar">
       <a href="#about">Über mich</a>
       <a href="#projects">Projekte</a>
@@ -25,16 +25,10 @@
           <h2>Über mich</h2>
           <p>
             Hallo, ich bin Angela. Ich studiere berufsbegleitend <i>Digital Business & AI (Wirtschaftsinformatik)</i> 
-            an der Berner Fachhochschule. Hier findet ihr Informationen zu mir als Person sowie zu meinen Projekten und Skills.
+            an der Berner Fachhochschule. Hier findest du Informationen zu mir als Person sowie zu meinen Projekten und Skills.
 
-            Ich bin 27 Jahre alt und lebe im schönen Kanton Solothurn. In meiner Freizeit bin ich gerne kreativ tätig. Dies reicht
-            von malen auf der Leinwand bis hin zu DIY-Projekten mit Holz, Ton und Garn. Ich höre beinahe jederzeit Musik und spiele sehr gerne Videospiele.
+            Ich bin 27 Jahre alt und lebe im schönen Kanton Solothurn. In meiner Freizeit bin ich gerne kreativ tätig. Ausserdem koche ich leidenschaftlich gerne und spiele Videospiele.
           </p>
-
-          <!-- NEU: Rezept der Saison -->
-          <h3 style="margin-top:2rem;">🍲 Rezept der Saison</h3>
-          <p id="season-label"></p>
-          <div id="recipe-card"></div>
         </div>
 
         <img
@@ -98,14 +92,22 @@
       <canvas id="skillsChart" width="400" height="400"></canvas>
     </section>
 
+    <!-- Rezept der Saison -->
+    <section id="season-recipe" class="section">
+      <h2>Rezept aus der Saison</h2>
+      <p>Suchst du ein passendes Rezept, das zur aktuellen Jahreszeit passt?</p>
+      <p id="season-label"></p>
+      <div id="recipe-card"></div>
+    </section>
+
     <section id="contact" class="section" aria-labelledby="contact-title">
       <h2 id="contact-title">Kontakt</h2>
       <p>Wenn du mit mir in Verbindung treten möchtest, nutze gerne eines der folgenden Kanäle:</p>
 
       <ul class="contact-list">
-        <li>📧 <a href="mailto:seckler.angela@hotmail.com">seckler.angela@hotmail.com</a></li>
-        <li>💼 <a href="https://ch.linkedin.com/in/angela-seckler-9766312a2" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li>💻 <a href="https://github.com/secka1" target="_blank" rel="noopener">GitHub</a></li>
+        <li> <a href="mailto:seckler.angela@hotmail.com">seckler.angela@hotmail.com</a></li>
+        <li> <a href="https://ch.linkedin.com/in/angela-seckler-9766312a2" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li> <a href="https://github.com/secka1" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
 
       <!-- Chart.js library und custom script -->
@@ -118,46 +120,85 @@
     <small>© 2025 Angela Seckler</small>
   </footer>
 
-  <!-- Rezept der Saison – TheMealDB API -->
+  <!-- TheMealDB API Script -->
   <script>
     const seasonLabel = document.getElementById("season-label");
     const recipeCard = document.getElementById("recipe-card");
+    const newRecipeBtn = document.getElementById("new-recipe-btn");
 
-    function getSeason() {
+    function getSeasonCategory() {
       const m = new Date().getMonth() + 1;
-      if (m === 12 || m === 1 || m === 2) return "Winter – wärmend & gemütlich";
-      if (m >= 3 && m <= 5) return "Frühling – leicht & frisch";
-      if (m >= 6 && m <= 8) return "Sommer – unkompliziert & sommerlich";
-      return "Herbst – deftig & aromatisch";
+
+      if (m === 12 || m === 1 || m === 2) {
+        return { label: "Winter – wärmend & gemütlich", category: "Beef" };
+      }
+      if (m >= 3 && m <= 5) {
+        return { label: "Frühling – leicht & frisch", category: "Vegetarian" };
+      }
+      if (m >= 6 && m <= 8) {
+        return { label: "Sommer – unkompliziert & sommerlich", category: "Seafood" };
+      }
+      return { label: "Herbst – deftig & aromatisch", category: "Pasta" };
     }
 
     async function loadSeasonRecipe() {
-      seasonLabel.textContent = `Aktuelle Saison: ${getSeason()}`;
+      const season = getSeasonCategory();
+      seasonLabel.textContent = `Aktuelle Saison: ${season.label}`;
       recipeCard.innerHTML = "<p>Lade Rezept…</p>";
 
       try {
-        const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
-        const data = await res.json();
-        const meal = data.meals[0];
+        const listRes = await fetch(
+          `https://www.themealdb.com/api/json/v1/1/filter.php?c=${encodeURIComponent(season.category)}`
+        );
+        const listData = await listRes.json();
 
-        recipeCard.innerHTML = `
-          <div class="project-card">
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="project-img" loading="lazy">
-            <div class="project-content">
-              <h3>${meal.strMeal}</h3>
-              <p>🌍 ${meal.strArea} · 🍽️ ${meal.strCategory}</p>
-              <a href="${meal.strSource || meal.strYoutube}" target="_blank" rel="noopener">
-                Rezept ansehen
-              </a>
-            </div>
-          </div>
-        `;
-      } catch {
+        let meal;
+
+        if (listData && Array.isArray(listData.meals) && listData.meals.length > 0) {
+          const randomMeal = listData.meals[Math.floor(Math.random() * listData.meals.length)];
+          const detailRes = await fetch(
+            `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${randomMeal.idMeal}`
+          );
+          const detailData = await detailRes.json();
+          meal = detailData.meals[0];
+        } else {
+          const fallbackRes = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+          const fallbackData = await fallbackRes.json();
+          meal = fallbackData.meals[0];
+        }
+
+recipeCard.innerHTML = `
+  <article class="project-card">
+    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="project-img" loading="lazy">
+    <div class="project-content">
+      <h3>${meal.strMeal}</h3>
+      <p> ${meal.strArea} ·  ${meal.strCategory}</p>
+
+      <div class="recipe-actions">
+        <a href="${meal.strSource || meal.strYoutube}" target="_blank" rel="noopener">
+          Rezept ansehen
+        </a>
+        <button class="new-recipe-btn">
+          Neues saisonales Rezept
+        </button>
+      </div>
+    </div>
+  </article>
+`;
+
+/* Button-Click nach dem Rendern binden */
+document
+  .querySelector(".new-recipe-btn")
+  .addEventListener("click", loadSeasonRecipe);
+
+      } catch (err) {
+        console.error(err);
         recipeCard.innerHTML = "<p>Rezept konnte nicht geladen werden.</p>";
       }
     }
 
     loadSeasonRecipe();
+    newRecipeBtn.addEventListener("click", loadSeasonRecipe);
   </script>
 </body>
 </html>
