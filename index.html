@@ -30,6 +30,11 @@
             Ich bin 27 Jahre alt und lebe im schönen Kanton Solothurn. In meiner Freizeit bin ich gerne kreativ tätig. Dies reicht
             von malen auf der Leinwand bis hin zu DIY-Projekten mit Holz, Ton und Garn. Ich höre beinahe jederzeit Musik und spiele sehr gerne Videospiele.
           </p>
+
+          <!-- NEU: Rezept der Saison -->
+          <h3 style="margin-top:2rem;">🍲 Rezept der Saison</h3>
+          <p id="season-label"></p>
+          <div id="recipe-card"></div>
         </div>
 
         <img
@@ -112,5 +117,47 @@
   <footer>
     <small>© 2025 Angela Seckler</small>
   </footer>
+
+  <!-- Rezept der Saison – TheMealDB API -->
+  <script>
+    const seasonLabel = document.getElementById("season-label");
+    const recipeCard = document.getElementById("recipe-card");
+
+    function getSeason() {
+      const m = new Date().getMonth() + 1;
+      if (m === 12 || m === 1 || m === 2) return "Winter – wärmend & gemütlich";
+      if (m >= 3 && m <= 5) return "Frühling – leicht & frisch";
+      if (m >= 6 && m <= 8) return "Sommer – unkompliziert & sommerlich";
+      return "Herbst – deftig & aromatisch";
+    }
+
+    async function loadSeasonRecipe() {
+      seasonLabel.textContent = `Aktuelle Saison: ${getSeason()}`;
+      recipeCard.innerHTML = "<p>Lade Rezept…</p>";
+
+      try {
+        const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
+        const data = await res.json();
+        const meal = data.meals[0];
+
+        recipeCard.innerHTML = `
+          <div class="project-card">
+            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="project-img" loading="lazy">
+            <div class="project-content">
+              <h3>${meal.strMeal}</h3>
+              <p>🌍 ${meal.strArea} · 🍽️ ${meal.strCategory}</p>
+              <a href="${meal.strSource || meal.strYoutube}" target="_blank" rel="noopener">
+                Rezept ansehen
+              </a>
+            </div>
+          </div>
+        `;
+      } catch {
+        recipeCard.innerHTML = "<p>Rezept konnte nicht geladen werden.</p>";
+      }
+    }
+
+    loadSeasonRecipe();
+  </script>
 </body>
 </html>
