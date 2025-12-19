@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio von Angela</title>
+  <!-- Einbindung CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
   <header>
     <h1>Angelas Portfolio</h1>
@@ -19,25 +19,17 @@
   </header>
 
   <main>
-    <!-- ÜBER MICH -->
     <section id="about" class="about">
       <div class="about-content">
         <div class="about-text">
           <h2>Über mich</h2>
           <p>
-            Hallo, ich bin Angela. Ich studiere berufsbegleitend
-            <i>Digital Business & AI (Wirtschaftsinformatik)</i>
-            an der Berner Fachhochschule.
-            <br><br>
-            Ich bin 27 Jahre alt, lebe im Kanton Solothurn und bin in meiner Freizeit
-            gerne kreativ. Neben Musik spiele ich leidenschaftlich Videospiele.
+            Hallo, ich bin Angela. Ich studiere berufsbegleitend <i>Digital Business & AI (Wirtschaftsinformatik)</i> 
+            an der Berner Fachhochschule. Hier findet ihr Informationen zu mir als Person sowie zu meinen Projekten und Skills.
+
+            Ich bin 27 Jahre alt und lebe im schönen Kanton Solothurn. In meiner Freizeit bin ich gerne kreativ tätig. Dies reicht
+            von malen auf der Leinwand bis hin zu DIY-Projekten mit Holz, Ton und Garn. Ich höre beinahe jederzeit Musik und spiele sehr gerne Videospiele.
           </p>
-
-          <!-- TOP 5 GAMES -->
-          <h3 style="margin-top:2rem;">🎮 Meine Top 5 Games</h3>
-          <p>Die folgenden Games werden live über eine externe API geladen.</p>
-
-          <div id="top-games-container" class="games-grid"></div>
         </div>
 
         <img
@@ -48,46 +40,47 @@
       </div>
     </section>
 
-    <!-- PROJEKTE -->
-    <section id="projects" class="section">
-      <h2>Projekte</h2>
-      <p class="projects-intro">Hier sind eine Auswahl meiner bisherigen Projekte.</p>
-
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projekte</h2>
+      <p class="projects-intro">
+        Hier sind eine Auswahl meiner bisherigen Projekte.
+      </p>
       <div class="projects-grid">
         <article class="project-card">
-          <img src="assets/img/silentaidfigma.jpg" class="project-img" loading="lazy">
+          <img src="assets/img/silentaidfigma.jpg" alt="Bild Projekt SilentAid" class="project-img" loading="lazy">
           <div class="project-content">
             <h3>SilentAid</h3>
             <p>
-              Erweiterung der SBB-App zur diskreten Hilferuf-Funktion,
-              entwickelt im Modul WPR2.
+              Das Feature <i>SilentAid</i> ist eine Erweiterung der SBB-App, welches wir entwickelt haben im Rahmen des Moduls WPR2. 
+              Mit SilentAid können Nutzer:Innen schnell und diskret Hilfe rufen. Zur Visualisierung habe ich dieses Mockup erstellt.
             </p>
             <p class="tech">Technologien: Figma</p>
-            <a href="https://www.figma.com/proto/yNX1snQSYd4VDhuoKBG4GE/SilentAid--" target="_blank">
+            <a href="https://www.figma.com/proto/yNX1snQSYd4VDhuoKBG4GE/SilentAid--?node-id=283-355&t=cntVZ3AiXmGVty5Y-0&scaling=min-zoom&content-scaling=fixed&page-id=11%3A68&starting-point-node-id=81%3A62" target="_blank" rel="noopener">
               Zum Prototyp
             </a>
           </div>
         </article>
 
         <article class="project-card">
-          <img src="assets/img/standesamt-hachen.JPG" class="project-img" loading="lazy">
+          <img src="assets/img/standesamt-hachen.JPG" alt="Screenshot Projekt Website Hochzeit" class="project-img" loading="lazy">
           <div class="project-content">
             <h3>Website Hochzeit</h3>
             <p>
-              Private Hochzeitswebsite mit Login-Funktion für Gäste.
+              Als Geschenk zur standesamtlichen Trauung meiner Schwester und ihres Partners, erstelle ich für die beiden
+              eine Website für ihre Hochzeit im 2026. Auf dieser Website können Gäste sich mit einem persönlichen Login an- oder abmelden.
             </p>
             <p class="tech">Technologien: HTML, CSS, JavaScript</p>
-            <a href="https://github.com/secka1/project2" target="_blank">Folgt</a>
+            <a href="https://github.com/secka1/project2" target="_blank" rel="noopener">Folgt</a>
           </div>
         </article>
 
         <article class="project-card">
-          <img src="assets/img/redesignEKDP.PNG" class="project-img" loading="lazy">
+          <img src="assets/img/redesignEKDP.PNG" alt="Screenshot Redesign EKDP" class="project-img" loading="lazy">
           <div class="project-content">
             <h3>Redesign EKDP</h3>
-            <p>Neugestaltung der EKDP Website im Modul EUID.</p>
+            <p>Im Rahmen des Moduls EUID haben wir die bestehende EKDP Seite neu gestalten.</p>
             <p class="tech">Technologien: Figma</p>
-            <a href="https://www.figma.com/design/Zfh1mkeJb4FSWgUsdZKjVT" target="_blank">
+            <a href="https://www.figma.com/design/Zfh1mkeJb4FSWgUsdZKjVT/EUID---Gruppenarbeit?node-id=4203-9&p=f&t=nsU22cSsBVTH1aAG-0" target="_blank" rel="noopener">
               Zum Projekt
             </a>
           </div>
@@ -95,21 +88,22 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills" class="section">
       <h2>Skills</h2>
       <canvas id="skillsChart" width="400" height="400"></canvas>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="contact" class="section">
-      <h2>Kontakt</h2>
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Kontakt</h2>
+      <p>Wenn du mit mir in Verbindung treten möchtest, nutze gerne eines der folgenden Kanäle:</p>
+
       <ul class="contact-list">
         <li>📧 <a href="mailto:seckler.angela@hotmail.com">seckler.angela@hotmail.com</a></li>
-        <li>💼 <a href="https://ch.linkedin.com/in/angela-seckler-9766312a2" target="_blank">LinkedIn</a></li>
-        <li>💻 <a href="https://github.com/secka1" target="_blank">GitHub</a></li>
+        <li>💼 <a href="https://ch.linkedin.com/in/angela-seckler-9766312a2" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li>💻 <a href="https://github.com/secka1" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
 
+      <!-- Chart.js library und custom script -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/skills-chart.js" defer></script>
     </section>
@@ -118,53 +112,5 @@
   <footer>
     <small>© 2025 Angela Seckler</small>
   </footer>
-
-  <!-- RAWG API -->
-  <script>
-    const RAWG_API_KEY = "282601daa9b84256bc55fcf648a23d85";
-
-    const myTop5 = [
-      { name: "Counter-Strike 2", slug: "counter-strike-2-2" },
-      { name: "Split Fiction", slug: "split-fiction" },
-      { name: "RV There Yet?", slug: "rv-there-yet" },
-      { name: "PEAK", slug: "peak-2025" },
-      { name: "League of Legends", slug: "league-of-legends" }
-    ];
-
-    const container = document.getElementById("top-games-container");
-
-    async function fetchGame(slug) {
-      const res = await fetch(`https://api.rawg.io/api/games/${slug}?key=${RAWG_API_KEY}`);
-      if (!res.ok) throw new Error("RAWG API Fehler");
-      return res.json();
-    }
-
-    async function loadTopGames() {
-      container.innerHTML = "<p>Lade Games…</p>";
-
-      try {
-        const games = await Promise.all(myTop5.map(g => fetchGame(g.slug)));
-        container.innerHTML = "";
-
-        games.forEach(game => {
-          const card = document.createElement("div");
-          card.className = "game-card";
-          card.innerHTML = `
-            <img src="${game.background_image}" alt="${game.name}" loading="lazy">
-            <div class="content">
-              <h4>${game.name}</h4>
-              <p>⭐ ${game.rating} · 📅 ${game.released ?? "—"}</p>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-      } catch (e) {
-        console.error(e);
-        container.innerHTML = "<p>Games konnten nicht geladen werden.</p>";
-      }
-    }
-
-    loadTopGames();
-  </script>
 </body>
 </html>
